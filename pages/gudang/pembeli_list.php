@@ -128,7 +128,7 @@ $konten   = "
         <div class='form-group row'>
             <label class='col-sm-1 col-form-label'>Tanggal</label>
             <div class='col-sm-3'>
-                <input type='text' class='form-control' name='a1' value='$a1' placeholder='yyyy-mm-dd'>
+                <input type='date' class='form-control' name='a1' value='$a1' placeholder='yyyy-mm-dd'>
             </div>
             <div class='col-sm-4'>
             <input type='submit' name='tombol' value='Lihat' class='btn btn-primary btn-md'>
