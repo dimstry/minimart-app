@@ -60,7 +60,7 @@
             <h3 class='mb-0 text-gray-800'><i class='fas fa-users'></i>    Pengguna</h3>
             <a href='?page=pemilik/pengguna_tambah' class='d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm'><i class='fas fa-plus'></i></a>
         </div>
-        <div class='card shadow mb-4'>
+         <div class='card shadow mb-4'>
                 <div class='card-header py-3'>
                     <h6 class='m-0 font-weight-bold text-primary'>Pengguna</h6>
                 </div>
@@ -81,7 +81,7 @@
                             </table>
                         </div>
                     </div>
-        </div>
+            </div>
     ";
 
 ?>

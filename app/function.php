@@ -16,6 +16,10 @@ function Login($username="",$password="")
             $_SESSION['jenis_log']=$data['level'];
             header("location:index.php");
         }
+        // elseif($status!="")
+        // {
+        //      return Alert("error","Akun Anda Sudah Di Non-Aktifkan","Periksa kembali inputan");
+        // }
         else
         {
             return Alert("info","Maaf Login gagal","Periksa kembali inputan");

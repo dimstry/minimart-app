@@ -47,14 +47,11 @@
             "'{$qbarang['id_barang']}','$id','$a3','{$qbarang['harga']}'");
             header("location:?page=$page&id=$id");
           
-          }     
+          }
+            
       break;
       case "Selesai":
           header("location:?page=$page");
-      break;
-      case "Batal":
-        Hapus($tabel,"id_penjualan='$id'");
-        header("location:?page=$page");
       break;
       
   }
@@ -149,7 +146,6 @@
           $TTambahan="    
              <input type='submit' class='btn btn-primary ml-2' name='tombol' value='Tambah'></input>
              <input type='submit' name='tombol' value='Selesai' class='btn btn-warning btn-md'>
-             <input type='submit' name='tombol' value='Batal' class='btn btn-danger btn-md'>
           ";
   
           $FTambahan="

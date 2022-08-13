@@ -43,11 +43,6 @@
       case "Selesai":
           header("location:?page=$page");
       break;
-      case "Batal":
-        Hapus($tabel,"id_pembelian='$id'");
-        header("location:?page=$page");
-      break;
-      
       
   }
   
@@ -65,6 +60,9 @@
       $DataBeli=AmbilData($tabel,$kunci);
       $a1=$DataBeli['kode'];
       $a2=$DataBeli['id_supplier'];
+  
+      // $query_select="SELECT * FROM barang_beli_list";
+      // $tampil=mysqli_query($koneksi,$query_select);
       $tampil=AmbilDataAll("barang_beli_list","where id_pembelian='$id'");
       $total=0;
       foreach ($tampil as $key )
@@ -145,8 +143,6 @@
           $TTambahan="    
               <input type='submit' name='tombol' value='Tambah' class='btn btn-primary btn-md'>
               <input type='submit' name='tombol' value='Selesai' class='btn btn-warning btn-md'>
-              <input type='submit' name='tombol' value='Batal' class='btn btn-danger btn-md'>
-
           ";
   
           $FTambahan="

@@ -16,12 +16,13 @@
                         <div class='card-body'>
                             <div class='row no-gutters align-items-center'>
                                 <div class='col mr-2'>
-                                    <div class='text-xs font-weight-bold text-primary text-uppercase mb-1'>Nama Minimart</div>
+                                    <div class='text-xs font-weight-bold text-primary text-uppercase mb-1'>
+                                    Nama Minimart</div>
                                     <div class='h6 mb-0 font-weight-bold text-gray-800'>JYP Shop</div>
                                 </div>
                                 <div class='col-auto'>
                                     <a class='btn btn-primary'>
-                                        <i class='fas fa-store-alt fa-2x'></i>
+                                    <i class='fas fa-store-alt fa-2x'></i>
                                     </a>
                                 </div>
                             </div>
@@ -35,7 +36,8 @@
                         <div class='card-body'>
                             <div class='row no-gutters align-items-center'>
                                 <div class='col mr-2'>
-                                    <div class='text-xs font-weight-bold text-success text-uppercase mb-1'>Pemilik</div>
+                                    <div class='text-xs font-weight-bold text-success text-uppercase mb-1'>
+                                    Pemilik</div>
                                     <div class='h6 mb-0 font-weight-bold text-gray-800'>Dimas Triana</div>
                                 </div>
                                 <div class='col-auto'>
@@ -54,8 +56,9 @@
                         <div class='card-body'>
                             <div class='row no-gutters align-items-center'>
                                 <div class='col mr-2'>
-                                    <div class='text-xs font-weight-bold text-warning text-uppercase mb-1'>Jumlah Kariyawan</div>
-                                    <div class='h5 mb-0 font-weight-bold text-gray-800'>5</div>
+                                    <div class='text-xs font-weight-bold text-warning text-uppercase mb-1'>
+                                        Jumlah Kariyawan</div>
+                                    <div class='h5 mb-0 font-weight-bold text-gray-800'>20</div>
                                 </div>
                                 <div class='col-auto'>
                                 <a class='btn btn-warning'>
@@ -67,6 +70,7 @@
                     </div>
                 </div>
             </div>
+
     ";
 
 ?>

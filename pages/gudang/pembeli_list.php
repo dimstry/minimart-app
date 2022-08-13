@@ -33,62 +33,13 @@
                     <td class='text-left'>{$ar['nama']}</td>
                     <td class='text-right'>".rupiah($ar['total'])."</td>
                     <td class='text-center'>
-                        <a href='?page=gudang/pembeli_edit&id={$ar['id_pembelian']}' class='btn btn-success btn-sm'><i class='fas fa-edit'></i></a>
-                        <a href='?page=$page&id={$ar['id_pembelian']}&p=tanya&tgl=$tgl' class='btn btn-danger btn-sm'><i class='fas fa-times'></i></a>    
+                     <a href='?page=gudang/pembeli_edit&id={$ar['id_pembelian']}' class='btn btn-success btn-sm'><i class='fas fa-edit'></i></a>
+                    <a href='?page=$page&id={$ar['id_pembelian']}&p=tanya&tgl=$tgl' class='btn btn-danger btn-sm'><i class='fas fa-times'></i></a>    
                     </td>
                 </tr>
             ";
             $total+=$ar['total'];
         }
-
-    $hasil="
-        <table class='table table-bordered'>
-            <thead>
-                <tr>
-                    <th class='text-center' style='width:5%'>No</th>
-                    <th class='text-center' style='width:15%'>Kode</th>
-                    <th class='text-center' style='width:15%'>Waktu</th>
-                    <th class='text-center' style='width:30%'>Supplier</th>
-                    <th class='text-center' style='width:15%'>Jumlah</th>
-                    <th class='text-center' style='width:10%'>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                $data
-                <tr>
-                    <th class='text-center'></th>
-                    <th class='text-center font-weight-bold' colspan='3'>TOTAL</th>
-                    <th class='text-right font-weight-bold'>".rupiah($total)."</th>
-                    <th class='text-center'></th>
-                </tr>
-            </tbody>
-        </table>
-    ";
-}
-else
-{
-    $tgl=date("Y-m-d");
-    $lain="WHERE DATE(waktu)='$tgl'";
-    $q=AmbilDataAll($tabel,$lain);
-    $total=0;
-    foreach($q as $ar)
-    {
-        $no++;
-        $data.="
-            <tr>
-                <td class='text-center'>$no</td>
-                <td class='text-center'>{$ar['kode']}</td>
-                <td class='text-center'>{$ar['waktu']}</td>
-                <td class='text-left'>{$ar['nama']}</td>
-                <td class='text-right'>".rupiah($ar['total'])."</td>
-                <td class='text-center'>
-                    <a href='?page=gudang/pembeli_edit&id={$ar['id_pembelian']}' class='btn btn-success btn-sm'><i class='fas fa-edit'></i></a>
-                    <a href='?page=$page&id={$ar['id_pembelian']}&p=tanya&tgl=$tgl' class='btn btn-danger btn-sm'><i class='fas fa-times'></i></a>    
-                </td>
-            </tr>
-        ";
-        $total+=$ar['total'];
-    }
 
     $hasil="
         <table class='table table-bordered'>
@@ -128,7 +79,7 @@ $konten   = "
         <div class='form-group row'>
             <label class='col-sm-1 col-form-label'>Tanggal</label>
             <div class='col-sm-3'>
-                <input type='date' class='form-control' name='a1' value='$a1' placeholder='yyyy-mm-dd'>
+                <input type='text' class='form-control' name='a1' value='$a1' placeholder='yyyy-mm-dd'>
             </div>
             <div class='col-sm-4'>
             <input type='submit' name='tombol' value='Lihat' class='btn btn-primary btn-md'>
@@ -139,6 +90,7 @@ $konten   = "
     $hasil
     
 ";
+
 $p=$_GET['p'];
 switch($p)
 {
