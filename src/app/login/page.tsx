@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 import { ScanBarcodeIcon, StoreIcon } from "lucide-react"
 import { DEMO, DEMO_AKUN, type Role } from "@/lib/supabase"
-import { ROLE_LABEL, TOKO } from "@/lib/utils"
+import { APP, ROLE_LABEL } from "@/lib/utils"
 import { ThemeToggle } from "@/components/app-sidebar"
 import { ActionForm, Field, PasswordField, SubmitButton } from "@/components/form"
 import { Card } from "@/components/ui/card"
 import { login, masukDemo } from "../actions"
 
-export const metadata: Metadata = { title: "Masuk" }
+export const metadata: Metadata = { title: "Masuk", alternates: { canonical: "/login" } }
 
 export default function LoginPage() {
   return (
@@ -18,8 +18,8 @@ export default function LoginPage() {
             <StoreIcon className="size-5" />
           </span>
           <span className="grid">
-            <strong className="text-xl font-extrabold">{TOKO.nama}</strong>
-            <span className="text-[13px] text-(--hero-muted)">Minimart · {TOKO.kota}</span>
+            <strong className="text-xl font-extrabold">{APP}</strong>
+            <span className="text-[13px] text-(--hero-muted)">Aplikasi kasir &amp; stok</span>
           </span>
         </div>
         <div className="grid max-w-[460px] gap-4">
@@ -29,7 +29,7 @@ export default function LoginPage() {
             Scan barang di kasir, catat pembelian dari supplier, dan cetak laporan harian tanpa pindah aplikasi.
           </p>
         </div>
-        <span className="text-[13px] text-(--hero-muted)">© {new Date().getFullYear()} {TOKO.nama}</span>
+        <span className="text-[13px] text-(--hero-muted)">© {new Date().getFullYear()} {APP}</span>
       </section>
       <section className="relative flex flex-[1_1_480px] flex-col items-center justify-center px-6 py-12">
         <div className="absolute top-6 right-6">

@@ -28,5 +28,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|ico)$).*)"],
+  // Aset & file metadata (ikon, gambar OG, robots, sitemap, manifest) harus bisa diakses tanpa login.
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|apple-icon|opengraph-image|robots.txt|sitemap.xml|manifest.webmanifest|.*\\.(?:svg|png|jpg|ico)$).*)"],
 }

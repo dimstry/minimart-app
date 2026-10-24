@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react"
 import Link from "next/link"
 import { ArrowLeftIcon, InboxIcon, SearchIcon, StoreIcon, type LucideIcon } from "lucide-react"
-import { cn, jam, rupiah, tanggal, tanggalPanjang, TOKO, waktu } from "@/lib/utils"
+import { APP, cn, jam, rupiah, tanggal, tanggalPanjang, TOKO, waktu } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -259,7 +259,7 @@ export function PrintSheet({
           </span>
           <div className="grid gap-0.5">
             <strong className="text-[22px] font-extrabold">{TOKO.nama}</strong>
-            <span className="text-[#4a4a52]">Minimart · {TOKO.kota}</span>
+            <span className="text-[#4a4a52]">{TOKO.lokasi}</span>
           </div>
         </div>
         <div className="grid gap-0.5 text-right">
@@ -276,16 +276,14 @@ export function PrintSheet({
       {catatan && <p className="text-[#4a4a52]">{catatan}</p>}
       <div className="flex-1" />
       <div className="ml-auto grid w-64 justify-items-center gap-1 text-center">
-        <span>
-          {TOKO.kota}, {tanggalPanjang(undefined, false)}
-        </span>
+        <span>{tanggalPanjang(undefined, false)}</span>
         <span>{jabatan}</span>
         <span className="h-20" />
         <strong className="w-full border-b border-[#111113] pb-1">{nama}</strong>
       </div>
       <div className="flex justify-between border-t border-[#e2e2e7] pt-3 text-xs text-[#6b6b74]">
         <span>
-          Dicetak dari {TOKO.nama} · {waktu(now)}
+          Dicetak dari {APP} · {waktu(now)}
         </span>
       </div>
     </div>

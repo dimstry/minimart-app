@@ -98,7 +98,7 @@ export default async function BerandaPage() {
       </div>
 
       <section aria-label="Info toko" className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <InfoCard icon={StoreIcon} label="Nama toko" value={TOKO.nama} sub={`Minimart · ${TOKO.kota}`} />
+        <InfoCard icon={StoreIcon} label="Nama toko" value={TOKO.nama} sub={TOKO.lokasi} />
         <InfoCard icon={UserIcon} label="Pemilik" value={pemilik?.nama ?? "-"} sub="Pengelola akun karyawan" />
         <Card variant="hero" className="flex-row items-center gap-4 rounded-[28px] px-5.5 py-5">
           <span className="grid size-12 shrink-0 place-items-center rounded-full bg-(--hero-line)">

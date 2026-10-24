@@ -15,7 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react"
 import { DEMO } from "@/lib/supabase"
-import { cn, TOKO } from "@/lib/utils"
+import { APP, cn, SITE } from "@/lib/utils"
 import { ThemeToggle } from "@/components/app-sidebar"
 import { buttonVariants } from "@/components/ui/button"
 
@@ -46,7 +46,7 @@ const PERAN = [
 ]
 
 const FAQ = [
-  ["Perlu perangkat khusus?", `Tidak. ${TOKO.nama} berjalan di browser laptop, PC, atau tablet. Untuk kasir, barcode scanner USB biasa sudah cukup karena scanner bekerja seperti keyboard.`],
+  ["Perlu perangkat khusus?", `Tidak. ${APP} berjalan di browser laptop, PC, atau tablet. Untuk kasir, barcode scanner USB biasa sudah cukup karena scanner bekerja seperti keyboard.`],
   ["Bisa dipakai lebih dari satu kasir?", "Bisa. Setiap kasir punya akun sendiri, dan setiap transaksi mencatat siapa kasirnya."],
   ["Bagaimana kalau stok barang tidak cukup?", "Saat jumlah yang dimasukkan melebihi stok, kasir langsung mendapat peringatan dan barang tidak ditambahkan ke transaksi. Database juga menolaknya, jadi aman walau dua kasir menjual barang yang sama bersamaan."],
   ["Laporannya bisa dicetak?", "Laporan stok dan laporan transaksi punya versi cetak ukuran A4 lengkap dengan tanggal dan kolom tanda tangan."],
@@ -59,9 +59,24 @@ function H2({ children, className }: { children: ReactNode; className?: string }
   return <h2 className={cn("text-[34px] leading-[1.08] font-extrabold tracking-[-0.035em] sm:text-[46px]", className)}>{children}</h2>
 }
 
+// Data terstruktur untuk mesin pencari (schema.org SoftwareApplication).
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: APP,
+  url: SITE,
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  inLanguage: "id",
+  description: "Aplikasi kasir & stok minimarket berbasis web: scan barcode, stok otomatis, laporan siap cetak, dan akses per peran.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "IDR" },
+  author: { "@type": "Person", name: "Dimas Triana", url: "https://dims-dev.vercel.app" },
+}
+
 export default function LandingPage() {
   return (
     <div className="relative overflow-hidden px-4 pt-6 pb-8 sm:px-6">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <span aria-hidden className="orb top-36 right-[6%] size-75 max-sm:hidden" />
       <span aria-hidden className="orb top-[560px] left-[46%] size-35 max-lg:hidden" />
       <span aria-hidden className="orb top-[1320px] -left-15 size-65 max-sm:hidden" />
@@ -73,7 +88,7 @@ export default function LandingPage() {
             <span className="grid size-10 place-items-center rounded-full bg-primary text-primary-foreground">
               <StoreIcon className="size-5" />
             </span>
-            <strong className="text-[19px] font-extrabold tracking-tight">{TOKO.nama}</strong>
+            <strong className="text-[19px] font-extrabold tracking-tight">{APP}</strong>
           </a>
           <nav aria-label="Navigasi" className="flex flex-wrap gap-1 max-md:hidden">
             {[
@@ -109,7 +124,7 @@ export default function LandingPage() {
               ketahuan.
             </h1>
             <p className="max-w-[520px] text-lg leading-relaxed text-muted-foreground">
-              {TOKO.nama} merapikan urusan harian toko: scan barang di kasir, catat barang masuk dari supplier, dan cetak laporan stok atau transaksi kapan saja, dari satu aplikasi di browser.
+              {APP} merapikan urusan harian toko: scan barang di kasir, catat barang masuk dari supplier, dan cetak laporan stok atau transaksi kapan saja, dari satu aplikasi di browser.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href={DEMO ? "/login#demo" : "/beranda"} className={buttonVariants({ className: "h-14 px-7 text-base" })}>
@@ -321,7 +336,7 @@ export default function LandingPage() {
 
         <footer className="flex flex-wrap items-center justify-between gap-4 px-2 text-sm text-muted-foreground">
           <span className="flex items-center gap-2">
-            <strong className="text-foreground">{TOKO.nama}</strong>© {new Date().getFullYear()}
+            <strong className="text-foreground">{APP}</strong>© {new Date().getFullYear()}
           </span>
           <span className="flex flex-wrap gap-5">
             <a href="#fitur">Fitur</a>

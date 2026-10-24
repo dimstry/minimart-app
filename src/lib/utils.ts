@@ -2,7 +2,12 @@ import type { Role } from "@/lib/supabase"
 
 export { cn } from "cn"
 
-export const TOKO = { nama: "mutherhelp", kota: "Subang" }
+// Nama produk (aplikasi) vs. toko yang memakainya (data demo).
+export const APP = "Minimart"
+export const TOKO = { nama: "mutherhelp", lokasi: "Indonesia" }
+
+// URL publik: domain production di Vercel, localhost saat development.
+export const SITE = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000"
 
 export const ROLE_LABEL: Record<Role, string> = { pemilik: "Pemilik", gudang: "Gudang", kasir: "Kasir" }
 

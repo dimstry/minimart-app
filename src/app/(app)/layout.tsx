@@ -1,6 +1,10 @@
+import type { Metadata } from "next"
 import { DEMO, requireRole } from "@/lib/supabase"
 import { AppSidebar, Crumbs } from "@/components/app-sidebar"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+
+// Halaman di balik login tidak perlu muncul di mesin pencari.
+export const metadata: Metadata = { robots: { index: false, follow: false } }
 
 export default async function AppLayout({ children }: LayoutProps<"/">) {
   const profile = await requireRole()

@@ -18,7 +18,7 @@ import {
   UsersIcon,
 } from "lucide-react"
 import type { Profile, Role } from "@/lib/supabase"
-import { inisial, ROLE_LABEL, TOKO } from "@/lib/utils"
+import { APP, inisial, ROLE_LABEL, TOKO } from "@/lib/utils"
 import { logout } from "@/app/actions"
 import { buatPenjualan } from "@/app/(app)/penjualan/actions"
 import { Button } from "@/components/ui/button"
@@ -63,8 +63,10 @@ export function AppSidebar({ profile }: { profile: Profile }) {
             <StoreIcon className="size-5" />
           </span>
           <span className="grid min-w-0 group-data-[collapsible=icon]:hidden">
-            <strong className="text-base font-extrabold tracking-tight">{TOKO.nama}</strong>
-            <span className="text-xs text-muted-foreground">Minimart · {TOKO.kota}</span>
+            <strong className="text-base font-extrabold tracking-tight">{APP}</strong>
+            <span className="text-xs text-muted-foreground">
+              {TOKO.nama} · {TOKO.lokasi}
+            </span>
           </span>
         </Link>
       </SidebarHeader>
