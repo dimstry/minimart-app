@@ -1,5 +1,7 @@
 # Minimart App
 
+**Demo:** https://minimart-app-orcin.vercel.app (klik *Coba demo*, tanpa daftar)
+
 Aplikasi kasir dan manajemen stok minimart berbasis web, dengan tiga peran: **pemilik**, **bagian gudang**, dan **kasir**.
 
 Awalnya proyek tugas akhir SMK (2022) yang dibuat dengan PHP native + MySQL. Versi ini adalah rewrite penuh ke stack modern dengan fitur yang sama.
@@ -44,7 +46,7 @@ Logika penting ada di database, bukan di aplikasi:
 
    Buka http://localhost:3000 dan masuk dengan username `admin`. Akun gudang & kasir dibuat dari menu **Pengguna**.
 
-6. (Opsional) Isi data demo supaya dashboard ramai: setelah akun kasir dibuat, jalankan `supabase/demo.sql` di SQL Editor. Isinya ±38 barang dengan perkiraan harga pasar, 4 supplier, dan ribuan transaksi sejak 1 Januari 2026.
+6. (Opsional) Mode demo seperti versi online: isi `DEMO_PASSWORD` di env, lalu jalankan `supabase/demo.sql` di SQL Editor. Halaman login akan punya tombol **Coba sebagai Kasir / Gudang / Pemilik**, menu Pengguna dikunci, dan setiap malam (03.00 WIB) semua barang & transaksi dibuat ulang: ±38 barang dengan perkiraan harga pasar, 4 supplier, dan transaksi 10 bulan terakhir. Akun tidak ikut terhapus.
 
 ## Tes
 

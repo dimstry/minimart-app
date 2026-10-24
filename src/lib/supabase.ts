@@ -9,6 +9,14 @@ export type Profile = { id: string; username: string; nama: string; role: Role; 
 export type ActionResult = { error?: string; ok?: string } | null
 
 // Supabase Auth butuh email, jadi username dipetakan ke domain palsu.
+// Mode demo (versi online di portofolio) aktif kalau DEMO_PASSWORD diisi.
+export const DEMO = !!process.env.DEMO_PASSWORD
+export const DEMO_AKUN: Record<Role, { username: string; nama: string }> = {
+  kasir: { username: "demo.kasir", nama: "Asep Saepudin" },
+  gudang: { username: "demo.gudang", nama: "Rina Marlina" },
+  pemilik: { username: "demo.pemilik", nama: "Joko Yulianto" },
+}
+
 export const toEmail = (username: string) => `${username.trim().toLowerCase()}@minimart.local`
 
 export async function createClient() {

@@ -2,13 +2,16 @@
 
 import { redirect } from "next/navigation"
 import { refresh } from "next/cache"
-import { createAdminClient, dbError, requireRole, toEmail, type ActionResult, type Role } from "@/lib/supabase"
+import { createAdminClient, dbError, DEMO, requireRole, toEmail, type ActionResult, type Role } from "@/lib/supabase"
 import { passwordAcak, ROLE_LABEL } from "@/lib/utils"
 
 // Akun Supabase Auth hanya bisa dibuat/diubah dengan secret key, jadi semua aksi di sini wajib cek role pemilik.
+// Di mode demo semuanya dikunci, supaya pengunjung tidak bisa mengunci akun demo atau akun asli.
+const TERKUNCI = { error: "Tidak tersedia di mode demo" }
 
 export async function simpanPengguna(id: string | null, formData: FormData): Promise<ActionResult> {
   const me = await requireRole("pemilik")
+  if (DEMO) return TERKUNCI
   const username = String(formData.get("username")).trim().toLowerCase()
   const nama = String(formData.get("nama")).trim()
   const role = String(formData.get("role")) as Role
@@ -39,6 +42,7 @@ export async function simpanPengguna(id: string | null, formData: FormData): Pro
 // Password baru dibuat di server dan dikembalikan sebagai `ok` untuk ditampilkan ke pemilik.
 export async function resetPassword(id: string): Promise<ActionResult> {
   await requireRole("pemilik")
+  if (DEMO) return TERKUNCI
   const password = passwordAcak()
   const { error } = await createAdminClient().auth.admin.updateUserById(id, { password })
   if (error) return { error: error.message }
@@ -47,6 +51,7 @@ export async function resetPassword(id: string): Promise<ActionResult> {
 
 export async function hapusPengguna(id: string): Promise<ActionResult> {
   const me = await requireRole("pemilik")
+  if (DEMO) return TERKUNCI
   if (id === me.id) return { error: "Tidak bisa menghapus akun sendiri" }
   const { error } = await createAdminClient().auth.admin.deleteUser(id)
   if (error) return { error: "Pengguna sudah punya transaksi, nonaktifkan saja" }

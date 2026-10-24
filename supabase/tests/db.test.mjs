@@ -92,24 +92,27 @@ await as('kasir', async () => assert.equal((await q(`select * from barang`)).len
 // hapus barang yang sudah dipakai transaksi ditolak FK
 await as('gudang', () => rejects(q(`delete from barang where id = 2`), /foreign key/))
 
-// demo.sql: stok tidak pernah minus, stok akhir sesuai target, ringkasan dashboard terisi
+// reset_demo(): stok tidak pernah minus, stok akhir sesuai target, ringkasan dashboard terisi
 const demo = await fresh()
 await demo.exec(`
   insert into auth.users values
     ('${U.pemilik}', 'admin@minimart.local', '{"role":"pemilik"}'),
     ('${U.kasir}', 'kasir1@minimart.local', '{"role":"kasir"}');
 `)
-await demo.exec(sql('demo.sql'))
 const dq = async (s) => (await demo.query(s)).rows
+for (let i = 0; i < 2; i++) await dq(`select reset_demo()`) // bisa diulang tiap malam
 assert.equal((await dq(`select count(*)::int n from barang where stok < 0`))[0].n, 0)
 assert.deepEqual(
   (await dq(`select nama, stok from barang where nama in ('Pocari Sweat 500 ml', 'Indomie Ayam Bawang 69 g') order by nama`)).map((r) => r.stok),
   [4, 0],
 )
 assert.ok((await dq(`select count(*)::int n from penjualan`))[0].n > 1000)
-const bulan = await dq(`select bulan from transaksi_bulanan where jenis = 'penjualan'`)
-assert.ok(bulan.length >= 9, `bulan penjualan: ${bulan.length}`)
-assert.equal((await dq(`select count(*)::int n from barang_bulanan where jenis = 'penjualan'`))[0].n > 0, true)
-await assert.rejects(demo.exec(sql('demo.sql')), /sudah pernah dijalankan/)
+assert.ok((await dq(`select count(*)::int n from transaksi_bulanan where jenis = 'penjualan'`))[0].n >= 9)
+assert.ok((await dq(`select count(*)::int n from barang_bulanan where jenis = 'penjualan'`))[0].n > 0)
+await dq(`select demo_tambah_penjualan()`)
+// tidak boleh dipanggil user lewat API
+await demo.exec(`set role authenticated`)
+await assert.rejects(demo.query(`select reset_demo()`), /permission denied/)
+await demo.exec(`reset role`)
 
 console.log('semua tes lolos ✅')

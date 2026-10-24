@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
 import { ScanBarcodeIcon, StoreIcon } from "lucide-react"
-import { TOKO } from "@/lib/utils"
+import { DEMO, DEMO_AKUN, type Role } from "@/lib/supabase"
+import { ROLE_LABEL, TOKO } from "@/lib/utils"
 import { ThemeToggle } from "@/components/app-sidebar"
 import { ActionForm, Field, PasswordField, SubmitButton } from "@/components/form"
 import { Card } from "@/components/ui/card"
-import { login } from "../actions"
+import { login, masukDemo } from "../actions"
 
 export const metadata: Metadata = { title: "Masuk" }
 
@@ -48,6 +49,23 @@ export default function LoginPage() {
             <p className="text-center text-[13px] text-muted-foreground">Lupa password? Minta pemilik toko untuk meresetnya.</p>
           </ActionForm>
         </Card>
+        {DEMO && (
+          <Card id="demo" className="mt-4 w-full max-w-[400px] gap-3 rounded-[28px] p-6">
+            <div className="grid gap-1">
+              <h2 className="text-base font-bold">Coba tanpa akun</h2>
+              <p className="text-[13px] text-muted-foreground">Masuk ke akun demo. Datanya dibuat ulang setiap malam, jadi bebas dicoba.</p>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              {(Object.keys(DEMO_AKUN) as Role[]).map((role) => (
+                <ActionForm key={role} action={masukDemo.bind(null, role)} className="grid">
+                  <SubmitButton variant="outline" pendingLabel="…">
+                    {ROLE_LABEL[role]}
+                  </SubmitButton>
+                </ActionForm>
+              ))}
+            </div>
+          </Card>
+        )}
       </section>
     </main>
   )

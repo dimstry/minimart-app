@@ -14,6 +14,7 @@ import {
   TruckIcon,
   type LucideIcon,
 } from "lucide-react"
+import { DEMO } from "@/lib/supabase"
 import { cn, TOKO } from "@/lib/utils"
 import { ThemeToggle } from "@/components/app-sidebar"
 import { buttonVariants } from "@/components/ui/button"
@@ -111,8 +112,8 @@ export default function LandingPage() {
               {TOKO.nama} merapikan urusan harian toko: scan barang di kasir, catat barang masuk dari supplier, dan cetak laporan stok atau transaksi kapan saja, dari satu aplikasi di browser.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/beranda" className={buttonVariants({ className: "h-14 px-7 text-base" })}>
-                Mulai sekarang <ArrowRightIcon />
+              <Link href={DEMO ? "/login#demo" : "/beranda"} className={buttonVariants({ className: "h-14 px-7 text-base" })}>
+                {DEMO ? "Coba demo" : "Mulai sekarang"} <ArrowRightIcon />
               </Link>
               <a href={REPO} className={cn("glass inline-flex h-14 items-center rounded-full px-6.5 text-base font-bold")}>
                 Lihat kode
