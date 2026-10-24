@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Layar kasir</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.jyp{--bg:#f6f6f7;--card:#ffffff;--fg:#0b0b0d;--muted:#64646d;--mutedbg:#f0f0f2;--border:#e2e2e7;--input:#d4d4db;--primary:#15803d;--pfg:#ffffff;--psoft:#e2f4e7;--psoftfg:#14532d;--danger:#c62828;--dfg:#ffffff;--dsoft:#fdeaea;--dsoftfg:#8a1c1c;--wsoft:#fcefd2;--wsoftfg:#7a3d05;--ring:rgba(21,128,61,.28);--shadow:0 1px 2px rgba(11,11,13,.06);--overlay:rgba(11,11,13,.45);font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased}
+.jyp.dark{--bg:#0a0a0c;--card:#141418;--fg:#f4f4f6;--muted:#a3a3ad;--mutedbg:#1f1f25;--border:#2a2a31;--input:#373740;--primary:#22c55e;--pfg:#03200e;--psoft:#0e2c1a;--psoftfg:#8debb0;--danger:#ef5350;--dfg:#1a0404;--dsoft:#3a1515;--dsoftfg:#fca5a5;--wsoft:#38290c;--wsoftfg:#fcd34d;--ring:rgba(34,197,94,.35);--shadow:none;--overlay:rgba(0,0,0,.6)}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.jyp{--bg:#dedee1;--card:rgba(255,255,255,.74);--fg:#111113;--muted:#56565e;--mutedbg:rgba(17,17,19,.05);--border:rgba(255,255,255,.92);--input:rgba(17,17,19,.14);--primary:#18181b;--pfg:#ffffff;--psoft:rgba(17,17,19,.07);--psoftfg:#111113;--danger:#b42318;--dfg:#ffffff;--dsoft:rgba(180,35,24,.11);--dsoftfg:#8a1c12;--wsoft:rgba(181,104,0,.14);--wsoftfg:#6b3a00;--ring:rgba(17,17,19,.12);--shadow:0 12px 40px rgba(17,17,19,.07);--overlay:rgba(210,210,214,.5);background:radial-gradient(1000px 640px at 6% 0%,rgba(255,255,255,.95),transparent 62%),radial-gradient(760px 820px at 104% 36%,rgba(250,250,251,.9),transparent 58%),conic-gradient(from 200deg at 60% 52%,#d3d3d7,#efeff1,#c8c8cc,#f4f4f5,#cdcdd1,#ebebed,#d3d3d7)}
+.jyp.dark{--bg:#121214;--card:rgba(34,34,38,.62);--fg:#f4f4f6;--muted:#a9a9b2;--mutedbg:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--input:rgba(255,255,255,.16);--primary:#f4f4f6;--pfg:#111113;--psoft:rgba(255,255,255,.1);--psoftfg:#f4f4f6;--danger:#f97066;--dfg:#1a0404;--dsoft:rgba(249,112,102,.16);--dsoftfg:#fda29b;--wsoft:rgba(253,176,34,.16);--wsoftfg:#fec84b;--ring:rgba(255,255,255,.18);--shadow:0 12px 40px rgba(0,0,0,.4);--overlay:rgba(0,0,0,.45);background:radial-gradient(1000px 640px at 6% 0%,rgba(80,80,88,.45),transparent 62%),conic-gradient(from 200deg at 60% 52%,#1a1a1d,#2a2a2e,#141416,#303034,#18181b,#26262a,#1a1a1d)}
+.jyp [style*="var(--card)"]{-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3)}
+.jyp [style*="var(--overlay)"]{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.jyp main > header{background:transparent!important;border-bottom:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;min-height:72px!important;padding-top:12px!important}
+.jyp [style*="radius: 12px"],.jyp [style*="radius:12px"]{border-radius:28px!important}
+.jyp [style*="radius: 14px"],.jyp [style*="radius: 10px"],.jyp [style*="radius:10px"]{border-radius:20px!important}
+.jyp button[style*="radius: 8px"],.jyp a[style*="radius: 8px"],.jyp button[style*="radius:8px"],.jyp button[style*="radius: 10px"],.jyp a[style*="radius: 10px"]{border-radius:999px!important}
+.jyp input[style*="radius: 8px"],.jyp select[style*="radius: 8px"],.jyp textarea[style*="radius: 8px"]{border-radius:16px!important}
+a{color:#15803d}a:hover{color:#14532d}
+</style>
+</helmet>
+<div class="jyp {{tc}}" style="position: relative; min-height: 960px; display: flex; flex-wrap: wrap; align-items: stretch">
+<dc-import name="Sidebar" role="Kasir" user="Asep Saepudin" active="pos" collapsed="{{true}}" dark="{{dark}}" hint-size="64px,960px"></dc-import>
+<main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+<header style="min-height: 56px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 0 24px; border-bottom: 1px solid var(--border); background: var(--card)">
+<button aria-label="Buka atau tutup sidebar" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 8px; background: transparent; color: var(--fg); cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></button>
+<span style="width: 1px; height: 20px; background: var(--border)"></span>
+<span style="font-size: 14px; color: var(--muted)">Kasir</span><span style="font-size: 14px; color: var(--muted)">/</span><span style="font-size: 14px; font-weight: 600">Transaksi baru</span>
+<div style="margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<span class="mono" style="height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 6px; background: var(--mutedbg); font-size: 13px; font-weight: 600">PJ-261024-0013</span>
+<span style="font-size: 13px; color: var(--muted)">Sabtu, 24 Okt 2026 · 14:32</span>
+</div>
+</header>
+<div style="padding: 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); padding: 20px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end">
+<div style="flex: 999 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 8px; position: relative">
+<label for="pos-barcode" style="font-size: 13px; font-weight: 600">Scan atau ketik barcode / nama barang</label>
+<div style="position: relative">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; left: 18px; top: 19px; color: var(--primary)"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M10 8v8M14 8v8M17 8v8"/></svg>
+<input id="pos-barcode" class="mono" value="{{q}}" onChange="{{onQ}}" onKeyDown="{{onKey}}" placeholder="Arahkan scanner ke barcode…" autocomplete="off" spellcheck="false" style="width: 100%; box-sizing: border-box; height: 64px; padding: 0 110px 0 58px; border: 2px solid var(--primary); border-radius: 10px; background: var(--card); color: var(--fg); font-size: 24px; font-weight: 600; outline: none; box-shadow: 0 0 0 4px var(--ring)">
+<span class="mono" style="position: absolute; right: 14px; top: 18px; height: 28px; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--mutedbg); color: var(--muted); font-size: 12px; font-weight: 600">Enter ↵</span>
+</div>
+<sc-if value="{{showSugg}}" hint-placeholder-val="{{true}}">
+<div role="listbox" aria-label="Saran barang" style="position: absolute; top: 100%; left: 0; right: 0; margin-top: 6px; z-index: 5; background: var(--card); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.18); overflow: hidden">
+<div style="padding: 8px 14px; font-size: 12px; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--border)">{{suggCount}} barang cocok</div>
+<sc-for list="{{sugg}}" as="s" hint-placeholder-count="3">
+<button onClick="{{s.pick}}" style="{{s.style}}">
+<span style="display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 auto"><span style="font-size: 15px; font-weight: 600">{{s.nm}}</span><span class="mono" style="font-size: 12px; color: var(--muted)">{{s.bc}}</span></span>
+<span class="mono" style="font-size: 15px; font-weight: 600">{{s.harga}}</span>
+<span style="{{s.stokStyle}}">{{s.stokLabel}}</span>
+</button>
+</sc-for>
+<div style="padding: 8px 14px; display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); background: var(--mutedbg)"><span>↑ ↓ pilih</span><span>Enter tambahkan</span><span>Esc tutup</span></div>
+</div>
+</sc-if>
+</div>
+<div style="flex: 0 0 120px; display: flex; flex-direction: column; gap: 8px">
+<label for="pos-qty" style="font-size: 13px; font-weight: 600">Jumlah</label>
+<input id="pos-qty" class="mono" type="number" min="1" value="{{qty}}" onChange="{{onQty}}" onKeyDown="{{onKey}}" style="width: 100%; box-sizing: border-box; height: 64px; padding: 0 12px; border: 1px solid var(--input); border-radius: 10px; background: var(--card); color: var(--fg); font-size: 24px; font-weight: 600; text-align: center">
+</div>
+<button onClick="{{onAdd}}" style="height: 64px; display: inline-flex; align-items: center; gap: 8px; padding: 0 22px; border: 1px solid var(--input); border-radius: 10px; background: var(--card); color: var(--fg); font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Tambah</button>
+</div>
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border)">
+<h2 style="margin: 0; font-size: 16px; font-weight: 700">Daftar belanja</h2>
+<span style="font-size: 13px; color: var(--muted)">{{jenis}} jenis · {{count}} barang</span>
+</div>
+<div style="overflow-x: auto">
+<div style="min-width: 820px">
+<div style="display: grid; grid-template-columns: 48px 150px minmax(200px, 1fr) 110px 136px 130px 56px; align-items: center; height: 44px; padding: 0 12px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--muted)">
+<span style="padding: 0 8px">No</span><span style="padding: 0 8px">Barcode</span><span style="padding: 0 8px">Nama barang</span><span style="padding: 0 8px; text-align: right">Harga</span><span style="padding: 0 8px; text-align: center">Qty</span><span style="padding: 0 8px; text-align: right">Subtotal</span><span></span>
+</div>
+<sc-for list="{{items}}" as="it" hint-placeholder-count="6">
+<div style="{{it.rowStyle}}">
+<span class="mono" style="padding: 0 8px; font-size: 13px; color: var(--muted)">{{it.no}}</span>
+<span class="mono" style="padding: 0 8px; font-size: 13px; color: var(--muted)">{{it.bc}}</span>
+<span style="padding: 0 8px; display: flex; align-items: center; gap: 8px; min-width: 0; font-weight: 600">{{it.nm}}<sc-if value="{{it.isNew}}" hint-placeholder-val="{{false}}"><span style="height: 20px; display: inline-flex; align-items: center; padding: 0 7px; border-radius: 999px; background: var(--primary); color: var(--pfg); font-size: 11px; font-weight: 700">Baru</span></sc-if></span>
+<span class="mono" style="padding: 0 8px; text-align: right">{{it.harga}}</span>
+<span style="padding: 0 8px; display: flex; justify-content: center">
+<span style="display: inline-flex; align-items: center; border: 1px solid var(--input); border-radius: 8px; background: var(--card); overflow: hidden">
+<button aria-label="Kurangi jumlah" onClick="{{it.dec}}" style="width: 36px; height: 36px; border: 0; background: transparent; color: var(--fg); font-size: 18px; cursor: pointer">−</button>
+<span class="mono" style="min-width: 40px; text-align: center; font-weight: 700">{{it.q}}</span>
+<button aria-label="Tambah jumlah" onClick="{{it.inc}}" style="width: 36px; height: 36px; border: 0; background: transparent; color: var(--fg); font-size: 18px; cursor: pointer">+</button>
+</span>
+</span>
+<span class="mono" style="padding: 0 8px; text-align: right; font-weight: 700">{{it.sub}}</span>
+<span style="display: flex; justify-content: flex-end"><button aria-label="Hapus barang" onClick="{{it.del}}" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 8px; background: transparent; color: var(--danger); cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg></button></span>
+</div>
+</sc-for>
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+<div style="padding: 56px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<span style="width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--mutedbg); color: var(--muted)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span>
+<strong style="font-size: 15px">Belum ada barang</strong>
+<span style="font-size: 14px; color: var(--muted)">Scan barcode untuk mulai transaksi.</span>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+<aside style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<span style="font-size: 14px; font-weight: 600; color: var(--muted)">Total belanja</span>
+<span style="height: 24px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 999px; background: var(--psoft); color: var(--psoftfg); font-size: 12px; font-weight: 700">{{count}} barang</span>
+</div>
+<div class="mono" style="font-size: 46px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; overflow-wrap: anywhere">{{total}}</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px dashed var(--border); font-size: 14px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: var(--muted)">Jumlah barang</span><span class="mono" style="font-weight: 600">{{count}} item · {{jenis}} jenis</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: var(--muted)">Kasir</span><span style="font-weight: 600">Asep Saepudin</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: var(--muted)">Kode</span><span class="mono" style="font-weight: 600">PJ-261024-0013</span></div>
+</div>
+<button onClick="{{onSelesai}}" style="height: 60px; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--primary); border-radius: 10px; background: var(--primary); color: var(--pfg); font-family: inherit; font-size: 17px; font-weight: 800; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Selesai<span class="mono" style="height: 24px; display: inline-flex; align-items: center; padding: 0 7px; border-radius: 6px; background: rgba(255,255,255,.2); font-size: 12px">F12</span></button>
+<button onClick="{{onBatal}}" style="height: 44px; width: 100%; border: 1px solid var(--input); border-radius: 10px; background: var(--card); color: var(--danger); font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Batalkan transaksi</button>
+</div>
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 14px; font-weight: 700">Pintasan keyboard</h3>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; font-size: 13px; color: var(--muted)">
+<span style="display: flex; align-items: center; gap: 8px"><span class="mono" style="min-width: 32px; height: 24px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 6px; color: var(--fg); font-size: 11px; font-weight: 600">F2</span>Fokus barcode</span>
+<span style="display: flex; align-items: center; gap: 8px"><span class="mono" style="min-width: 32px; height: 24px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 6px; color: var(--fg); font-size: 11px; font-weight: 600">F4</span>Ubah jumlah</span>
+<span style="display: flex; align-items: center; gap: 8px"><span class="mono" style="min-width: 32px; height: 24px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 6px; color: var(--fg); font-size: 11px; font-weight: 600">↑↓</span>Pilih saran</span>
+<span style="display: flex; align-items: center; gap: 8px"><span class="mono" style="min-width: 32px; height: 24px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 6px; color: var(--fg); font-size: 11px; font-weight: 600">Del</span>Hapus baris terakhir</span>
+<span style="display: flex; align-items: center; gap: 8px"><span class="mono" style="min-width: 32px; height: 24px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 6px; color: var(--fg); font-size: 11px; font-weight: 600">Esc</span>Kosongkan input</span>
+<span style="display: flex; align-items: center; gap: 8px"><span class="mono" style="min-width: 32px; height: 24px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 6px; color: var(--fg); font-size: 11px; font-weight: 600">F12</span>Selesai</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+<div role="status" style="{{toastStyle}}">
+<sc-if value="{{toastOk}}" hint-placeholder-val="{{true}}"><span style="color: var(--primary); display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></span></sc-if>
+<sc-if value="{{toastErr}}" hint-placeholder-val="{{false}}"><span style="color: var(--danger); display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span></sc-if>
+<span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">{{toastTitle}}</strong><span style="font-size: 13px; color: var(--muted)">{{toastDesc}}</span></span>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  catalog() {
+    return [
+      { bc: '8996001600146', nm: 'Indomie Goreng 85 g', h: 3500, st: 240 },
+      { bc: '8996001600269', nm: 'Indomie Soto Mie 75 g', h: 3300, st: 96 },
+      { bc: '8996001600399', nm: 'Indomie Ayam Bawang 69 g', h: 3300, st: 3 },
+      { bc: '8886008101053', nm: 'Aqua Air Mineral 600 ml', h: 4000, st: 180 },
+      { bc: '8992761111014', nm: 'Teh Botol Sosro 450 ml', h: 5500, st: 64 },
+      { bc: '8992753102308', nm: 'Minyak Goreng Bimoli 2 L', h: 38500, st: 18 },
+      { bc: '8993093665011', nm: 'Gula Pasir Gulaku 1 kg', h: 17500, st: 42 },
+      { bc: '8991002101104', nm: 'Kopi Kapal Api Special 165 g', h: 14000, st: 35 },
+      { bc: '8999999195649', nm: 'Sabun Lifebuoy Merah 110 g', h: 4500, st: 0 },
+      { bc: '8998009010231', nm: 'Susu Ultra Coklat 250 ml', h: 6500, st: 5 }
+    ];
+  }
+  S() {
+    return Object.assign({
+      q: '899600160', qty: '1', sel: 0, last: '8996001600146', toast: null,
+      cart: [
+        { bc: '8992753102308', q: 1 }, { bc: '8993093665011', q: 2 }, { bc: '8991002101104', q: 1 },
+        { bc: '8886008101053', q: 6 }, { bc: '8992761111014', q: 4 }, { bc: '8996001600146', q: 10 }
+      ]
+    }, this.state || {});
+  }
+  rp(n) { return 'Rp ' + Number(n).toLocaleString('id-ID'); }
+  flash(kind, title, desc) {
+    this.setState({ toast: { kind: kind, title: title, desc: desc } });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ toast: null }), 3200);
+  }
+  find(bc) { return this.catalog().find((p) => p.bc === bc); }
+  add(p) {
+    const s = this.S();
+    const n = Math.max(1, parseInt(s.qty, 10) || 1);
+    if (p.st <= 0) { this.flash('err', 'Stok habis', p.nm + ' tidak bisa dijual.'); return; }
+    const cart = s.cart.map((x) => ({ bc: x.bc, q: x.q }));
+    const ex = cart.find((x) => x.bc === p.bc);
+    const cur = ex ? ex.q : 0;
+    if (cur + n > p.st) { this.flash('err', 'Stok tidak cukup', p.nm + ' tinggal ' + p.st + ' di gudang.'); return; }
+    if (ex) ex.q += n; else cart.push({ bc: p.bc, q: n });
+    this.setState({ cart: cart, q: '', qty: '1', sel: 0, last: p.bc });
+  }
+  setQ(bc, delta) {
+    const s = this.S();
+    const p = this.find(bc);
+    const cart = s.cart.map((x) => ({ bc: x.bc, q: x.q }));
+    const ex = cart.find((x) => x.bc === bc);
+    if (!ex) return;
+    const next = ex.q + delta;
+    if (next < 1) return;
+    if (next > p.st) { this.flash('err', 'Stok tidak cukup', p.nm + ' tinggal ' + p.st + ' di gudang.'); return; }
+    ex.q = next;
+    this.setState({ cart: cart, last: bc });
+  }
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    const s = this.S();
+    const cat = this.catalog();
+    const ql = String(s.q || '').trim().toLowerCase();
+    const matches = ql ? cat.filter((p) => p.bc.indexOf(ql) === 0 || p.nm.toLowerCase().indexOf(ql) >= 0).slice(0, 5) : [];
+    const sel = Math.min(s.sel, Math.max(0, matches.length - 1));
+    const sugg = matches.map((p, i) => {
+      const habis = p.st <= 0, tipis = p.st > 0 && p.st <= 5;
+      return {
+        nm: p.nm, bc: p.bc, harga: this.rp(p.h),
+        stokLabel: habis ? 'Stok habis' : 'Stok ' + p.st,
+        stokStyle: 'height:24px;display:inline-flex;align-items:center;padding:0 9px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap;' + (habis ? 'background:var(--dsoft);color:var(--dsoftfg);' : tipis ? 'background:var(--wsoft);color:var(--wsoftfg);' : 'background:var(--mutedbg);color:var(--muted);'),
+        style: 'width:100%;display:flex;align-items:center;gap:16px;padding:12px 14px;border:0;border-bottom:1px solid var(--border);color:var(--fg);text-align:left;font-family:inherit;cursor:pointer;' + (i === sel ? 'background:var(--psoft);' : 'background:transparent;') + (habis ? 'opacity:.6;' : ''),
+        pick: () => this.add(p)
+      };
+    });
+    let total = 0, count = 0;
+    const items = s.cart.map((x, i) => {
+      const p = this.find(x.bc);
+      total += p.h * x.q; count += x.q;
+      const isNew = x.bc === s.last;
+      return {
+        no: i + 1, bc: p.bc, nm: p.nm, q: x.q, harga: this.rp(p.h), sub: this.rp(p.h * x.q), isNew: isNew,
+        rowStyle: 'display:grid;grid-template-columns:48px 150px minmax(200px,1fr) 110px 136px 130px 56px;align-items:center;min-height:56px;padding:0 12px;border-bottom:1px solid var(--border);font-size:14px;' + (isNew ? 'background:var(--psoft);' : ''),
+        inc: () => this.setQ(x.bc, 1),
+        dec: () => this.setQ(x.bc, -1),
+        del: () => this.setState({ cart: this.S().cart.filter((c) => c.bc !== x.bc) })
+      };
+    });
+    const t = s.toast;
+    return {
+      dark: dark, tc: dark ? 'dark' : '',
+      q: s.q, qty: s.qty, sugg: sugg, showSugg: sugg.length > 0, suggCount: sugg.length,
+      items: items, empty: items.length === 0, total: this.rp(total), count: count, jenis: items.length,
+      hasToast: !!t, toastOk: !!t && t.kind === 'ok', toastErr: !!t && t.kind === 'err',
+      toastTitle: t ? t.title : '', toastDesc: t ? t.desc : '',
+      toastStyle: 'position:absolute;right:24px;bottom:24px;z-index:20;width:360px;max-width:calc(100% - 48px);box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:var(--card);color:var(--fg);border:1px solid ' + (t && t.kind === 'err' ? 'var(--danger)' : 'var(--border)') + ';box-shadow:0 16px 40px rgba(0,0,0,.18);',
+      onQ: (e) => this.setState({ q: e.target.value, sel: 0 }),
+      onQty: (e) => this.setState({ qty: e.target.value }),
+      onKey: (e) => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); this.setState({ sel: Math.min(sel + 1, matches.length - 1) }); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); this.setState({ sel: Math.max(sel - 1, 0) }); }
+        else if (e.key === 'Escape') { this.setState({ q: '', sel: 0 }); }
+        else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (matches.length) this.add(matches[sel]);
+          else if (ql) this.flash('err', 'Barang tidak ditemukan', 'Barcode ' + s.q + ' belum terdaftar.');
+        }
+      },
+      onAdd: () => { if (matches.length) this.add(matches[sel]); },
+      onSelesai: () => {
+        if (!items.length) { this.flash('err', 'Belum ada barang', 'Scan minimal satu barang dulu.'); return; }
+        this.setState({ cart: [], q: '', qty: '1', last: '' });
+        this.flash('ok', 'Transaksi tersimpan', 'PJ-261024-0013 · ' + this.rp(total));
+      },
+      onBatal: () => this.setState({ cart: [], q: '', qty: '1', last: '' })
+    };
+  }
+}
+</script>
+</body>
+</html>

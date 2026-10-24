@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>mutherhelp</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.jyp{--card:rgba(255,255,255,.74);--fg:#111113;--muted:#56565e;--mutedbg:rgba(17,17,19,.05);--border:rgba(255,255,255,.92);--input:rgba(17,17,19,.14);--primary:#18181b;--pfg:#ffffff;--shadow:0 12px 40px rgba(17,17,19,.07);font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--fg);-webkit-font-smoothing:antialiased;background:radial-gradient(1100px 700px at 8% 0%,rgba(255,255,255,.95),transparent 62%),radial-gradient(900px 900px at 100% 22%,rgba(250,250,251,.85),transparent 58%),radial-gradient(900px 700px at 0% 70%,rgba(255,255,255,.7),transparent 60%),conic-gradient(from 200deg at 62% 30%,#d3d3d7,#efeff1,#c8c8cc,#f4f4f5,#cdcdd1,#ebebed,#d3d3d7)}
+.jyp.dark{--card:rgba(34,34,38,.62);--fg:#f4f4f6;--muted:#a9a9b2;--mutedbg:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--input:rgba(255,255,255,.16);--primary:#f4f4f6;--pfg:#111113;--shadow:0 12px 40px rgba(0,0,0,.4);background:radial-gradient(1000px 640px at 6% 0%,rgba(80,80,88,.45),transparent 62%),conic-gradient(from 200deg at 62% 30%,#1a1a1d,#2a2a2e,#141416,#303034,#18181b,#26262a,#1a1a1d)}
+.jyp [style*="var(--card)"]{-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3)}
+.hero{background:#18181b;color:#f4f4f6;--hm:#a9a9b2;--hl:rgba(255,255,255,.14);--hb:rgba(255,255,255,.22)}
+.jyp.dark .hero{background:#f4f4f6;color:#111113;--hm:#56565e;--hl:rgba(17,17,19,.12);--hb:rgba(17,17,19,.25)}
+.glass{position:relative;background:linear-gradient(140deg,rgba(255,255,255,.66) 0%,rgba(255,255,255,.22) 55%,rgba(255,255,255,.4) 100%);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,1),0 24px 60px rgba(17,17,19,.12);-webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6)}
+.jyp.dark .glass{background:linear-gradient(140deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.04) 55%,rgba(255,255,255,.09) 100%);border-color:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 24px 60px rgba(0,0,0,.45)}
+.orb{position:absolute;border-radius:999px;pointer-events:none;background:radial-gradient(circle at 32% 28%,#ffffff 0%,#b4b4ba 14%,#4a4a50 42%,#111113 72%,#3a3a40 100%)}
+.faq summary{list-style:none;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq details[open] .chev{transform:rotate(45deg)}
+a{color:#111113}a:hover{color:#56565e}
+</style>
+</helmet>
+<div class="jyp {{tc}}" style="position: relative; overflow: hidden; min-height: 3800px; box-sizing: border-box; padding: 24px 24px 32px">
+<span class="orb" aria-hidden="true" style="right: 6%; top: 150px; width: 300px; height: 300px"></span>
+<span class="orb" aria-hidden="true" style="left: 46%; top: 560px; width: 140px; height: 140px"></span>
+<span class="orb" aria-hidden="true" style="left: -60px; top: 1320px; width: 260px; height: 260px"></span>
+<span class="orb" aria-hidden="true" style="right: -40px; top: 2600px; width: 220px; height: 220px"></span>
+
+<div style="position: relative; max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 120px">
+
+<header class="glass" style="border-radius: 999px; padding: 10px 10px 10px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg)"><span style="width: 40px; height: 40px; border-radius: 999px; background: var(--primary); color: var(--pfg); display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9"/><path d="M10 21v-5h4v5"/></svg></span><strong style="font-size: 19px; font-weight: 800; letter-spacing: -0.02em">mutherhelp</strong></a>
+<nav aria-label="Navigasi" style="display: flex; flex-wrap: wrap; gap: 4px">
+<a href="#fitur" style="height: 40px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 999px; color: var(--fg); font-size: 14px; font-weight: 600; text-decoration: none">Fitur</a>
+<a href="#cara" style="height: 40px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 999px; color: var(--fg); font-size: 14px; font-weight: 600; text-decoration: none">Cara kerja</a>
+<a href="#peran" style="height: 40px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 999px; color: var(--fg); font-size: 14px; font-weight: 600; text-decoration: none">Peran</a>
+<a href="#faq" style="height: 40px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 999px; color: var(--fg); font-size: 14px; font-weight: 600; text-decoration: none">FAQ</a>
+</nav>
+<div style="display: flex; gap: 8px">
+<a href="Login.dc.html" style="height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--fg); color: var(--fg); font-size: 14px; font-weight: 700; text-decoration: none">Masuk</a>
+<a href="Login.dc.html" style="height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 20px; border-radius: 999px; background: var(--primary); color: var(--pfg); font-size: 14px; font-weight: 700; text-decoration: none">Coba gratis</a>
+</div>
+</header>
+
+<section id="top" style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px; margin-top: -40px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<span class="glass" style="align-self: flex-start; height: 36px; display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; border-radius: 999px; font-size: 13px; font-weight: 700"><span style="width: 8px; height: 8px; border-radius: 999px; background: var(--fg)"></span>Kasir &amp; stok untuk minimart</span>
+<h1 style="margin: 0; font-size: 68px; line-height: 1.02; font-weight: 800; letter-spacing: -0.045em">Kasir cepat.<br>Stok selalu<br>ketahuan.</h1>
+<p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 1.6; color: var(--muted)">mutherhelp merapikan urusan harian toko: scan barang di kasir, catat barang masuk dari supplier, dan cetak laporan stok atau transaksi kapan saja, dari satu aplikasi di browser.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="Login.dc.html" style="height: 56px; display: inline-flex; align-items: center; gap: 10px; padding: 0 28px; border-radius: 999px; background: var(--primary); color: var(--pfg); font-size: 16px; font-weight: 700; text-decoration: none">Mulai sekarang<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a href="Beranda.dc.html" class="glass" style="height: 56px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px; padding: 0 26px; border-radius: 999px; color: var(--fg); font-size: 16px; font-weight: 700; text-decoration: none">Lihat dashboard</a>
+</div>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M10 8v8M14 8v8M17 8v8"/></svg>Cukup pakai barcode scanner USB biasa.</span>
+</div>
+
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div class="hero" style="border-radius: 32px; padding: 26px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 24px 60px rgba(17,17,19,.25); margin-right: 64px">
+<div style="display: flex; justify-content: space-between; align-items: center"><strong style="font-size: 17px">Ringkasan hari ini</strong><span style="height: 28px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; border: 1px solid var(--hb); font-size: 12px; font-weight: 600">Sab, 24 Okt</span></div>
+<div style="display: flex; align-items: flex-end; gap: 18px"><strong class="mono" style="font-size: 38px; line-height: 1; letter-spacing: -0.03em">Rp 562.000</strong><span style="font-size: 13px; color: var(--hm); padding-bottom: 4px">8 transaksi</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<span style="border-radius: 20px; background: #c4c4c9; color: #111113; padding: 14px; display: flex; flex-direction: column; gap: 2px"><strong class="mono" style="font-size: 24px">10</strong><span style="font-size: 12px; font-weight: 600">Jenis barang</span></span>
+<span style="border-radius: 20px; background: #ffffff; color: #111113; padding: 14px; display: flex; flex-direction: column; gap: 2px"><strong class="mono" style="font-size: 24px">2</strong><span style="font-size: 12px; font-weight: 600">Menipis</span></span>
+<span style="border-radius: 20px; background: #ffffff; color: #111113; padding: 14px; display: flex; flex-direction: column; gap: 2px"><strong class="mono" style="font-size: 24px">1</strong><span style="font-size: 12px; font-weight: 600">Habis</span></span>
+</div>
+</div>
+<div style="display: flex; gap: 16px; margin-left: 48px">
+<div class="glass" style="flex: 1.3 1 0; min-width: 0; border-radius: 28px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<strong style="font-size: 15px">Penjualan per bulan</strong>
+<div style="display: flex; align-items: flex-end; gap: 6px; height: 100px">
+<sc-for list="{{mini}}" as="m" hint-placeholder-count="8"><div style="{{m}}"></div></sc-for>
+</div>
+</div>
+<div style="flex: 1 1 0; min-width: 0; border-radius: 28px; padding: 20px; background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: space-between; gap: 10px">
+<span style="font-size: 13px; color: var(--muted)">Total belanja</span>
+<strong class="mono" style="font-size: 26px; letter-spacing: -0.03em">Rp 168.500</strong>
+<span style="height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--primary); color: var(--pfg); font-size: 14px; font-weight: 700">Selesai</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="fitur" style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+<h2 style="margin: 0; max-width: 620px; font-size: 46px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em">Semua yang dibutuhkan toko setiap hari.</h2>
+<p style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.6; color: var(--muted)">Dari rak gudang sampai meja kasir, setiap barang yang masuk dan keluar langsung tercatat.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<sc-for list="{{features}}" as="f" hint-placeholder-count="6">
+<article class="{{f.cls}}" style="{{f.style}}">
+<span style="{{f.iconStyle}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{f.icon}}"/></svg></span>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 20px; font-weight: 700">{{f.t}}</h3><p style="{{f.pStyle}}">{{f.d}}</p></div>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section class="hero" style="border-radius: 40px; padding: 56px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px; box-shadow: 0 30px 80px rgba(17,17,19,.25)">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span style="align-self: flex-start; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; border: 1px solid var(--hb); font-size: 13px; font-weight: 600">Layar kasir</span>
+<h2 style="margin: 0; font-size: 42px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Dibuat untuk tangan kasir, bukan mouse.</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--hm)">Scan barcode, tekan Enter, lanjut ke barang berikutnya. Kalau stok tidak cukup, kasir langsung diberi tahu sebelum transaksi disimpan.</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; font-size: 14px; color: var(--hm)">
+<span style="display: flex; align-items: center; gap: 10px"><span class="mono" style="min-width: 40px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--hb); color: inherit; font-size: 12px; font-weight: 700">F2</span>Fokus barcode</span>
+<span style="display: flex; align-items: center; gap: 10px"><span class="mono" style="min-width: 40px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--hb); font-size: 12px; font-weight: 700">↑↓</span>Pilih saran</span>
+<span style="display: flex; align-items: center; gap: 10px"><span class="mono" style="min-width: 40px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--hb); font-size: 12px; font-weight: 700">Enter</span>Tambah barang</span>
+<span style="display: flex; align-items: center; gap: 10px"><span class="mono" style="min-width: 40px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--hb); font-size: 12px; font-weight: 700">F12</span>Selesai</span>
+</div>
+</div>
+<div style="flex: 1.2 1 440px; min-width: 0; border-radius: 30px; background: #f4f4f6; color: #111113; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="height: 60px; border-radius: 18px; border: 2px solid #18181b; background: #ffffff; display: flex; align-items: center; gap: 14px; padding: 0 18px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M10 8v8M14 8v8M17 8v8"/></svg><span class="mono" style="font-size: 20px; font-weight: 700">899600160</span><span style="width: 2px; height: 26px; background: #18181b"></span></div>
+<div style="border-radius: 18px; background: #ffffff; overflow: hidden">
+<sc-for list="{{pos}}" as="p" hint-placeholder-count="3"><div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #ececef; font-size: 14px"><span style="flex: 1 1 auto; min-width: 0; font-weight: 600">{{p.nm}}</span><span class="mono" style="color: #56565e">{{p.h}}</span><span style="{{p.badge}}">{{p.s}}</span></div></sc-for>
+</div>
+<div style="border-radius: 18px; background: #ffffff; padding: 12px 16px; display: flex; align-items: center; gap: 10px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b42318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span><strong>Stok tidak cukup.</strong> Indomie Ayam Bawang tinggal 3.</span></div>
+</div>
+</section>
+
+<section id="cara" style="display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; font-size: 46px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em; text-align: center">Tiga langkah, stok ikut rapi.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+<div class="glass" style="border-radius: 32px; padding: 30px; display: flex; flex-direction: column; gap: 20px; min-height: 220px; box-sizing: border-box">
+<span class="mono" style="width: 52px; height: 52px; border-radius: 999px; background: var(--primary); color: var(--pfg); display: inline-flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">{{s.n}}</span>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 21px; font-weight: 700">{{s.t}}</h3><p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted)">{{s.d}}</p></div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="peran" style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+<h2 style="margin: 0; max-width: 560px; font-size: 46px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em">Satu toko, tiga peran.</h2>
+<p style="margin: 0; max-width: 400px; font-size: 16px; line-height: 1.6; color: var(--muted)">Setiap orang punya akun sendiri dan hanya melihat menu yang ia butuhkan.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<sc-for list="{{roles}}" as="r" hint-placeholder-count="3">
+<div class="{{r.cls}}" style="{{r.style}}">
+<div style="display: flex; align-items: center; justify-content: space-between"><h3 style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em">{{r.t}}</h3><span style="{{r.tagStyle}}">{{r.tag}}</span></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{r.items}}" as="i" hint-placeholder-count="4"><li style="display: flex; align-items: center; gap: 10px; font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>{{i}}</li></sc-for>
+</ul>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="faq" class="faq" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; font-size: 46px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em">Pertanyaan yang sering muncul</h2><p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted)">Belum terjawab? Hubungi kami di [NOMOR WHATSAPP].</p></div>
+<div style="flex: 1.6 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="5">
+<details class="glass" style="border-radius: 24px; padding: 0 24px">
+<summary style="min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 17px; font-weight: 700">{{q.q}}<span class="chev" style="width: 32px; height: 32px; flex: 0 0 32px; border-radius: 999px; background: var(--primary); color: var(--pfg); display: inline-flex; align-items: center; justify-content: center; transition: transform .2s"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+<p style="margin: 0 0 22px; font-size: 15px; line-height: 1.65; color: var(--muted)">{{q.a}}</p>
+</details>
+</sc-for>
+</div>
+</section>
+
+<section class="hero" style="border-radius: 40px; padding: 64px 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; position: relative; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 620px; position: relative"><h2 style="margin: 0; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.035em">Siap merapikan toko?</h2><p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--hm)">Daftarkan barang pertamamu hari ini. Kasir bisa langsung jualan besok pagi.</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; position: relative">
+<a href="Login.dc.html" style="height: 56px; display: inline-flex; align-items: center; gap: 10px; padding: 0 28px; border-radius: 999px; background: #ffffff; color: #111113; font-size: 16px; font-weight: 700; text-decoration: none">Coba gratis<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a href="#faq" style="height: 56px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 26px; border-radius: 999px; border: 1.5px solid var(--hb); color: inherit; font-size: 16px; font-weight: 700; text-decoration: none">Hubungi kami</a>
+</div>
+</section>
+
+<footer style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 8px; margin-top: -72px; font-size: 14px; color: var(--muted)">
+<span style="display: flex; align-items: center; gap: 10px"><strong style="color: var(--fg); font-weight: 800">mutherhelp</strong>© 2026</span>
+<span style="display: flex; flex-wrap: wrap; gap: 20px"><a href="#fitur" style="color: inherit; text-decoration: none">Fitur</a><a href="#cara" style="color: inherit; text-decoration: none">Cara kerja</a><a href="#faq" style="color: inherit; text-decoration: none">FAQ</a><a href="Login.dc.html" style="color: inherit; text-decoration: none">Masuk</a></span>
+</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":3800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    const MV = [55, 58, 90, 62, 65, 67, 71, 74];
+    const mini = MV.map((v, i) => 'flex:1 1 0;border-radius:999px;height:' + v + '%;' + (i === 2 ? 'background:var(--primary);' : (dark ? 'background:rgba(255,255,255,.22);' : 'background:rgba(255,255,255,.95);border:1px solid rgba(17,17,19,.08);box-sizing:border-box;')));
+    const I = {
+      scan: 'M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8',
+      box: 'M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8',
+      truck: 'M1 4h14v12H1zM15 8h4l3 3v5h-7zM5.5 16.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM18.5 16.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+      print: 'M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z',
+      lock: 'M4 11h16v10H4zM8 11V7a4 4 0 0 1 8 0v4',
+      chart: 'M3 3v18h18M8 17v-5M13 17V8M18 17v-9'
+    };
+    const F = [
+      ['scan', 'Kasir pakai scanner', 'Scan atau ketik barcode, nama barang dan sisa stok muncul seketika. Jumlah default 1, tinggal Enter.', 'hero'],
+      ['box', 'Stok bergerak sendiri', 'Stok bertambah saat pembelian diselesaikan dan berkurang di setiap penjualan. Badge habis dan menipis langsung terlihat.', 'card'],
+      ['truck', 'Pembelian dari supplier', 'Pilih supplier, masukkan barang, harga beli, dan jumlah. Total pembelian terhitung otomatis.', 'glass'],
+      ['print', 'Laporan siap cetak', 'Laporan stok dan transaksi per rentang tanggal, lengkap dengan kolom tanda tangan.', 'glass'],
+      ['lock', 'Akses sesuai peran', 'Pemilik, gudang, dan kasir punya menu masing-masing. Akun bisa dinonaktifkan kapan saja.', 'card'],
+      ['chart', 'Dashboard harian', 'Penjualan hari ini, grafik per bulan, dan barang paling laku dalam satu layar.', 'hero']
+    ];
+    const features = F.map((f) => {
+      const h = f[3] === 'hero', g = f[3] === 'glass';
+      return {
+        t: f[1], d: f[2], icon: I[f[0]], cls: h ? 'hero' : g ? 'glass' : '',
+        style: 'border-radius:32px;padding:30px;min-height:260px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:24px;' + (h || g ? '' : 'background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);'),
+        iconStyle: 'width:52px;height:52px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;' + (h ? 'background:var(--hl);' : 'background:var(--primary);color:var(--pfg);'),
+        pStyle: 'margin:0;font-size:15px;line-height:1.6;color:' + (h ? 'var(--hm)' : 'var(--muted)') + ';'
+      };
+    });
+    const pos = [
+      ['Indomie Goreng 85 g', 'Rp 3.500', 'Stok 240', 0],
+      ['Indomie Soto Mie 75 g', 'Rp 3.300', 'Stok 96', 0],
+      ['Indomie Ayam Bawang 69 g', 'Rp 3.300', 'Stok 3', 1]
+    ].map((p) => ({ nm: p[0], h: p[1], s: p[2], badge: 'height:24px;display:inline-flex;align-items:center;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap;' + (p[3] ? 'background:#fcefd2;color:#6b3a00;' : 'background:#f0f0f2;color:#56565e;') }));
+    const steps = [
+      { n: '01', t: 'Daftarkan barang & supplier', d: 'Masukkan barcode, nama, dan harga jual. Catat juga supplier langgananmu.' },
+      { n: '02', t: 'Catat barang masuk', d: 'Setiap pembelian yang diselesaikan otomatis menambah stok di gudang.' },
+      { n: '03', t: 'Jual di kasir', d: 'Stok berkurang di setiap transaksi, laporan siap dicetak kapan pun dibutuhkan.' }
+    ];
+    const roles = [
+      { t: 'Pemilik', tag: 'Kontrol penuh', items: ['Kelola akun karyawan', 'Reset password', 'Laporan pembelian & penjualan', 'Dashboard toko'], hero: true },
+      { t: 'Gudang', tag: 'Barang masuk', items: ['Daftar barang & harga', 'Data supplier', 'Pembelian dari supplier', 'Laporan stok siap cetak'], glass: true },
+      { t: 'Kasir', tag: 'Barang keluar', items: ['Layar kasir dengan scanner', 'Saran barang & sisa stok', 'Riwayat penjualan', 'Peringatan stok tidak cukup'] }
+    ].map((r) => ({
+      t: r.t, tag: r.tag, items: r.items, cls: r.hero ? 'hero' : r.glass ? 'glass' : '',
+      style: 'border-radius:32px;padding:30px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;' + (r.hero || r.glass ? '' : 'background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);'),
+      tagStyle: 'height:30px;display:inline-flex;align-items:center;padding:0 12px;border-radius:999px;font-size:12px;font-weight:700;' + (r.hero ? 'border:1px solid var(--hb);' : 'border:1px solid var(--input);')
+    }));
+    const faq = [
+      { q: 'Perlu perangkat khusus?', a: 'Tidak. mutherhelp berjalan di browser laptop, PC, atau tablet. Untuk kasir, barcode scanner USB biasa sudah cukup karena scanner bekerja seperti keyboard.' },
+      { q: 'Bisa dipakai lebih dari satu kasir?', a: 'Bisa. Setiap kasir punya akun sendiri, dan setiap transaksi mencatat siapa kasirnya.' },
+      { q: 'Bagaimana kalau stok barang tidak cukup?', a: 'Saat jumlah yang dimasukkan melebihi stok, kasir langsung mendapat peringatan dan barang tidak ditambahkan ke transaksi.' },
+      { q: 'Laporannya bisa dicetak?', a: 'Laporan stok dan laporan transaksi punya versi cetak ukuran A4 lengkap dengan tanggal dan kolom tanda tangan.' },
+      { q: 'Kalau karyawan berhenti bekerja?', a: 'Pemilik cukup menonaktifkan akunnya. Ia tidak bisa masuk lagi, tetapi riwayat transaksinya tetap tersimpan.' }
+    ];
+    return { tc: dark ? 'dark' : '', mini: mini, features: features, pos: pos, steps: steps, roles: roles, faq: faq };
+  }
+}
+</script>
+</body>
+</html>

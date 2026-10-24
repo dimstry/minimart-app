@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Sidebar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<aside aria-label="Navigasi utama" style="{{rootStyle}}">
+<div style="{{brandStyle}}">
+<span style="width: 40px; height: 40px; flex: 0 0 40px; border-radius: 10px; background: var(--primary); color: var(--pfg); display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9"/><path d="M10 21v-5h4v5"/></svg></span>
+<sc-if value="{{expanded}}" hint-placeholder-val="{{true}}">
+<span style="display: flex; flex-direction: column; min-width: 0"><strong style="font-size: 16px; font-weight: 800; letter-spacing: -0.01em">mutherhelp</strong><span style="font-size: 12px; color: var(--muted)">Minimart · Subang</span></span>
+</sc-if>
+</div>
+<sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><div style="padding: 18px 12px 6px; font-size: 12px; font-weight: 600; color: var(--muted)">Menu {{role}}</div></sc-if>
+<sc-if value="{{collapsed}}" hint-placeholder-val="{{false}}"><div style="height: 14px"></div></sc-if>
+<nav style="{{navStyle}}">
+<a href="Beranda.dc.html" title="Beranda" style="{{s.beranda}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Beranda</span></sc-if></a>
+<sc-if value="{{isGudang}}" hint-placeholder-val="{{true}}">
+<a href="Barang.dc.html" title="Barang" style="{{s.barang}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Barang</span></sc-if></a>
+<a href="Supplier.dc.html" title="Supplier" style="{{s.supplier}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4h14v12H1z"/><path d="M15 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Supplier</span></sc-if></a>
+<a href="Pembelian.dc.html" title="Pembelian" style="{{s.pembelian}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Pembelian</span></sc-if></a>
+</sc-if>
+<sc-if value="{{isKasir}}" hint-placeholder-val="{{false}}">
+<a href="Main.dc.html" title="Transaksi baru" style="{{s.pos}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M10 8v8M14 8v8M17 8v8"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Transaksi baru</span></sc-if></a>
+<a href="Penjualan.dc.html" title="Penjualan" style="{{s.penjualan}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2h14v20l-3.5-2-3.5 2-3.5-2L5 22z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Penjualan</span></sc-if></a>
+</sc-if>
+<sc-if value="{{isPemilik}}" hint-placeholder-val="{{false}}">
+<a href="Pengguna.dc.html" title="Pengguna" style="{{s.pengguna}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M16 3.1a4 4 0 0 1 0 7.8M22 21v-1a6 6 0 0 0-4-5.6"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Pengguna</span></sc-if></a>
+<a href="Laporan.dc.html" title="Laporan" style="{{s.laporan}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M8 17v-5M13 17V8M18 17v-9"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Laporan</span></sc-if></a>
+</sc-if>
+</nav>
+<div style="flex: 1 1 auto; min-height: 24px"></div>
+<div style="{{footStyle}}">
+<div style="{{userStyle}}">
+<span style="width: 36px; height: 36px; flex: 0 0 36px; border-radius: 999px; background: var(--psoft); color: var(--psoftfg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800">{{initials}}</span>
+<sc-if value="{{expanded}}" hint-placeholder-val="{{true}}">
+<span style="display: flex; flex-direction: column; min-width: 0"><strong style="font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{user}}</strong><span style="font-size: 12px; color: var(--muted)">{{role}}</span></span>
+</sc-if>
+</div>
+<button aria-label="Ganti tema" title="Ganti tema" style="{{s.btn}}">
+<sc-if value="{{dark}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></sc-if>
+<sc-if value="{{light}}" hint-placeholder-val="{{true}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></sc-if>
+<sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>{{themeLabel}}</span></sc-if>
+</button>
+<a href="Login.dc.html" title="Keluar" style="{{s.out}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg><sc-if value="{{expanded}}" hint-placeholder-val="{{true}}"><span>Keluar</span></sc-if></a>
+</div>
+</aside>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"role":{"editor":"enum","options":["Pemilik","Gudang","Kasir"],"default":"Gudang"},"user":{"editor":"text","default":"Rina Marlina"},"active":{"editor":"text","default":"barang"},"collapsed":{"editor":"boolean","default":false},"dark":{"editor":"boolean","default":false},"$preview":{"width":256,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark === true || this.props.dark === 'true';
+    const collapsed = this.props.collapsed === true || this.props.collapsed === 'true';
+    const role = this.props.role || 'Gudang';
+    const user = this.props.user || 'Rina Marlina';
+    const active = this.props.active || 'barang';
+    const L = '--card:rgba(255,255,255,.8);--fg:#111113;--muted:#56565e;--mutedbg:rgba(17,17,19,.05);--border:rgba(255,255,255,.92);--input:rgba(17,17,19,.14);--primary:#18181b;--pfg:#ffffff;--psoft:rgba(17,17,19,.07);--psoftfg:#111113;--danger:#b42318;';
+    const D = '--card:rgba(34,34,38,.66);--fg:#f4f4f6;--muted:#a9a9b2;--mutedbg:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--input:rgba(255,255,255,.16);--primary:#f4f4f6;--pfg:#111113;--psoft:rgba(255,255,255,.1);--psoftfg:#f4f4f6;--danger:#f97066;';
+    const w = collapsed ? 72 : 248;
+    const base = 'display:flex;align-items:center;gap:12px;height:44px;border-radius:999px;text-decoration:none;font-size:14px;box-sizing:border-box;' + (collapsed ? 'width:44px;justify-content:center;padding:0;' : 'width:100%;padding:0 16px;');
+    const item = (k) => base + (k === active ? 'background:var(--primary);color:var(--pfg);font-weight:700;' : 'color:var(--fg);font-weight:500;');
+    const s = {};
+    ['beranda', 'barang', 'supplier', 'pembelian', 'pos', 'penjualan', 'pengguna', 'laporan'].forEach((k) => { s[k] = item(k); });
+    s.btn = base + 'border:0;background:transparent;color:var(--muted);font-family:inherit;font-weight:500;cursor:pointer;';
+    s.out = base + 'color:var(--danger);font-weight:600;';
+    const initials = user.split(' ').filter(Boolean).map((x) => x[0]).slice(0, 2).join('').toUpperCase();
+    return {
+      role: role, user: user, initials: initials, s: s,
+      expanded: !collapsed, collapsed: collapsed, dark: dark, light: !dark,
+      themeLabel: dark ? 'Mode terang' : 'Mode gelap',
+      isGudang: role === 'Gudang', isKasir: role === 'Kasir', isPemilik: role === 'Pemilik',
+      rootStyle: (dark ? D : L) + 'width:' + w + 'px;flex:0 0 ' + w + 'px;box-sizing:border-box;min-height:860px;margin:20px 0 20px 20px;align-self:stretch;display:flex;flex-direction:column;padding:24px 14px;background:var(--card);border:1px solid var(--border);border-radius:32px;box-shadow:0 12px 40px rgba(17,17,19,.07);-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);color:var(--fg);font-family:"Plus Jakarta Sans",system-ui,sans-serif;',
+      brandStyle: 'display:flex;align-items:center;gap:12px;' + (collapsed ? 'justify-content:center;' : 'padding:0 4px;'),
+      navStyle: 'display:flex;flex-direction:column;gap:2px;' + (collapsed ? 'align-items:center;' : ''),
+      footStyle: 'display:flex;flex-direction:column;gap:2px;padding-top:12px;border-top:1px solid var(--border);' + (collapsed ? 'align-items:center;' : ''),
+      userStyle: 'display:flex;align-items:center;gap:10px;padding:6px 4px 10px;' + (collapsed ? 'justify-content:center;' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

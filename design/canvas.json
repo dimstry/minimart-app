@@ -1,0 +1,37 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-24T07:30:00Z"},
+  "title": "mutherhelp",
+  "launch": {"view": "canvas"},
+  "pages": [{"id": "app", "name": "Aplikasi"}, {"id": "landing", "name": "Landing page"}],
+  "boards": {
+    "Login.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "Login", "expand": "fill", "is_interactive": true},
+    "Beranda.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 1360, "title": "Dashboard / Beranda (semua peran)", "expand": "fill"},
+    "NotFound.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 900, "title": "404", "expand": "fill"},
+    "Sidebar.dc.html": {"x": 4560, "y": 0, "w": 256, "h": 900, "title": "Sidebar (komponen)"},
+    "Main.dc.html": {"x": 0, "y": 1760, "w": 1440, "h": 960, "title": "Layar kasir (POS)", "expand": "fill", "is_interactive": true},
+    "Penjualan.dc.html": {"x": 1520, "y": 1760, "w": 1440, "h": 900, "title": "Daftar penjualan", "expand": "fill"},
+    "Barang.dc.html": {"x": 0, "y": 3120, "w": 1440, "h": 960, "title": "Daftar barang", "expand": "fill", "is_interactive": true},
+    "BarangForm.dc.html": {"x": 1520, "y": 3120, "w": 1440, "h": 900, "title": "Form barang", "expand": "fill"},
+    "LaporanStok.dc.html": {"x": 3040, "y": 3120, "w": 794, "h": 1123, "title": "Laporan stok (cetak)", "paper": "a4"},
+    "Supplier.dc.html": {"x": 3914, "y": 3120, "w": 1440, "h": 900, "title": "Daftar supplier", "expand": "fill"},
+    "SupplierForm.dc.html": {"x": 5434, "y": 3120, "w": 1440, "h": 900, "title": "Form supplier", "expand": "fill"},
+    "Pembelian.dc.html": {"x": 6954, "y": 3120, "w": 1440, "h": 960, "title": "Daftar pembelian + pilih supplier", "expand": "fill", "is_interactive": true},
+    "PembelianDetail.dc.html": {"x": 8474, "y": 3120, "w": 1440, "h": 1040, "title": "Detail pembelian", "expand": "fill"},
+    "Pengguna.dc.html": {"x": 0, "y": 4660, "w": 1440, "h": 900, "title": "Daftar pengguna", "expand": "fill"},
+    "PenggunaForm.dc.html": {"x": 1520, "y": 4660, "w": 1440, "h": 1000, "title": "Form pengguna", "expand": "fill"},
+    "Laporan.dc.html": {"x": 3040, "y": 4660, "w": 1440, "h": 1040, "title": "Laporan pembelian & penjualan", "expand": "fill", "is_interactive": true},
+    "LaporanCetak.dc.html": {"x": 4560, "y": 4660, "w": 794, "h": 1123, "title": "Laporan transaksi (cetak)", "paper": "a4"},
+    "Komponen.dc.html": {"x": 0, "y": 6200, "w": 1440, "h": 1320, "title": "Komponen & state"},
+    "Landing.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 3800, "title": "Landing page mutherhelp", "page": "landing", "expand": "fill", "is_interactive": true}
+  },
+  "order": ["Main.dc.html", "Sidebar.dc.html", "Login.dc.html", "Beranda.dc.html", "NotFound.dc.html", "Penjualan.dc.html", "Barang.dc.html", "BarangForm.dc.html", "LaporanStok.dc.html", "Supplier.dc.html", "SupplierForm.dc.html", "Pembelian.dc.html", "PembelianDetail.dc.html", "Pengguna.dc.html", "PenggunaForm.dc.html", "Laporan.dc.html", "LaporanCetak.dc.html", "Komponen.dc.html", "Landing.dc.html"],
+  "notes": {
+    "tUmum": {"x": 0, "y": -300, "text": "Umum", "kind": "title1", "maxW": 4816},
+    "tKasir": {"x": 0, "y": 1460, "text": "Kasir", "kind": "title1", "maxW": 2960},
+    "tGudang": {"x": 0, "y": 2820, "text": "Gudang", "kind": "title1", "maxW": 9914},
+    "tPemilik": {"x": 0, "y": 4360, "text": "Pemilik", "kind": "title1", "maxW": 5354},
+    "tKomp": {"x": 0, "y": 5900, "text": "Komponen & state", "kind": "title1", "maxW": 1440}
+  },
+  "designSystems": []
+}

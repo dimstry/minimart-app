@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Daftar barang</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.jyp{--bg:#f6f6f7;--card:#ffffff;--fg:#0b0b0d;--muted:#64646d;--mutedbg:#f0f0f2;--border:#e2e2e7;--input:#d4d4db;--primary:#15803d;--pfg:#ffffff;--psoft:#e2f4e7;--psoftfg:#14532d;--danger:#c62828;--dfg:#ffffff;--dsoft:#fdeaea;--dsoftfg:#8a1c1c;--wsoft:#fcefd2;--wsoftfg:#7a3d05;--ring:rgba(21,128,61,.28);--shadow:0 1px 2px rgba(11,11,13,.06);--overlay:rgba(11,11,13,.45);font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased}
+.jyp.dark{--bg:#0a0a0c;--card:#141418;--fg:#f4f4f6;--muted:#a3a3ad;--mutedbg:#1f1f25;--border:#2a2a31;--input:#373740;--primary:#22c55e;--pfg:#03200e;--psoft:#0e2c1a;--psoftfg:#8debb0;--danger:#ef5350;--dfg:#1a0404;--dsoft:#3a1515;--dsoftfg:#fca5a5;--wsoft:#38290c;--wsoftfg:#fcd34d;--ring:rgba(34,197,94,.35);--shadow:none;--overlay:rgba(0,0,0,.6)}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.jyp{--bg:#dedee1;--card:rgba(255,255,255,.74);--fg:#111113;--muted:#56565e;--mutedbg:rgba(17,17,19,.05);--border:rgba(255,255,255,.92);--input:rgba(17,17,19,.14);--primary:#18181b;--pfg:#ffffff;--psoft:rgba(17,17,19,.07);--psoftfg:#111113;--danger:#b42318;--dfg:#ffffff;--dsoft:rgba(180,35,24,.11);--dsoftfg:#8a1c12;--wsoft:rgba(181,104,0,.14);--wsoftfg:#6b3a00;--ring:rgba(17,17,19,.12);--shadow:0 12px 40px rgba(17,17,19,.07);--overlay:rgba(210,210,214,.5);background:radial-gradient(1000px 640px at 6% 0%,rgba(255,255,255,.95),transparent 62%),radial-gradient(760px 820px at 104% 36%,rgba(250,250,251,.9),transparent 58%),conic-gradient(from 200deg at 60% 52%,#d3d3d7,#efeff1,#c8c8cc,#f4f4f5,#cdcdd1,#ebebed,#d3d3d7)}
+.jyp.dark{--bg:#121214;--card:rgba(34,34,38,.62);--fg:#f4f4f6;--muted:#a9a9b2;--mutedbg:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--input:rgba(255,255,255,.16);--primary:#f4f4f6;--pfg:#111113;--psoft:rgba(255,255,255,.1);--psoftfg:#f4f4f6;--danger:#f97066;--dfg:#1a0404;--dsoft:rgba(249,112,102,.16);--dsoftfg:#fda29b;--wsoft:rgba(253,176,34,.16);--wsoftfg:#fec84b;--ring:rgba(255,255,255,.18);--shadow:0 12px 40px rgba(0,0,0,.4);--overlay:rgba(0,0,0,.45);background:radial-gradient(1000px 640px at 6% 0%,rgba(80,80,88,.45),transparent 62%),conic-gradient(from 200deg at 60% 52%,#1a1a1d,#2a2a2e,#141416,#303034,#18181b,#26262a,#1a1a1d)}
+.jyp [style*="var(--card)"]{-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3)}
+.jyp [style*="var(--overlay)"]{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.jyp main > header{background:transparent!important;border-bottom:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;min-height:72px!important;padding-top:12px!important}
+.jyp [style*="radius: 12px"],.jyp [style*="radius:12px"]{border-radius:28px!important}
+.jyp [style*="radius: 14px"],.jyp [style*="radius: 10px"],.jyp [style*="radius:10px"]{border-radius:20px!important}
+.jyp button[style*="radius: 8px"],.jyp a[style*="radius: 8px"],.jyp button[style*="radius:8px"],.jyp button[style*="radius: 10px"],.jyp a[style*="radius: 10px"]{border-radius:999px!important}
+.jyp input[style*="radius: 8px"],.jyp select[style*="radius: 8px"],.jyp textarea[style*="radius: 8px"]{border-radius:16px!important}
+a{color:#15803d}a:hover{color:#14532d}
+</style>
+</helmet>
+<div class="jyp {{tc}}" style="min-height: 960px; display: flex; flex-wrap: wrap; align-items: stretch">
+<dc-import name="Sidebar" role="Gudang" user="Rina Marlina" active="barang" collapsed="{{false}}" dark="{{dark}}" hint-size="256px,960px"></dc-import>
+<main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+<header style="height: 56px; display: flex; align-items: center; gap: 12px; padding: 0 24px; border-bottom: 1px solid var(--border); background: var(--card)">
+<button aria-label="Buka atau tutup sidebar" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 8px; background: transparent; color: var(--fg); cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></button>
+<span style="width: 1px; height: 20px; background: var(--border)"></span>
+<span style="font-size: 14px; color: var(--muted)">Gudang</span><span style="font-size: 14px; color: var(--muted)">/</span><span style="font-size: 14px; font-weight: 600">Barang</span>
+</header>
+<div style="padding: 32px; max-width: 1180px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em">Daftar barang</h1><p style="margin: 0; font-size: 14px; color: var(--muted)">Kelola katalog, harga jual, dan pantau stok gudang.</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="LaporanStok.dc.html" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid var(--input); border-radius: 8px; background: var(--card); color: var(--fg); font-size: 14px; font-weight: 600; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>Laporan stok</a>
+<a href="BarangForm.dc.html" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid var(--primary); border-radius: 8px; background: var(--primary); color: var(--pfg); font-size: 14px; font-weight: 700; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Tambah barang</a>
+</div>
+</div>
+<div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--border)">
+<div style="position: relative; flex: 1 1 280px; max-width: 380px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; left: 12px; top: 12px; color: var(--muted)"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input aria-label="Cari barang" value="{{q}}" onChange="{{onQ}}" placeholder="Cari nama atau barcode…" style="width: 100%; box-sizing: border-box; height: 40px; padding: 0 12px 0 36px; border: 1px solid var(--input); border-radius: 8px; background: var(--card); color: var(--fg); font-family: inherit; font-size: 14px"></div>
+<div role="group" aria-label="Filter stok" style="display: inline-flex; padding: 3px; border-radius: 10px; background: var(--mutedbg); gap: 2px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}<span class="mono" style="font-size: 12px; color: var(--muted)">{{t.n}}</span></button>
+</sc-for>
+</div>
+</div>
+<div style="overflow-x: auto"><div style="min-width: 760px">
+<div style="display: grid; grid-template-columns: 170px minmax(220px, 1fr) 130px 180px 100px; align-items: center; height: 44px; padding: 0 12px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--muted)"><span style="padding: 0 8px">Barcode</span><span style="padding: 0 8px">Nama barang</span><span style="padding: 0 8px; text-align: right">Harga</span><span style="padding: 0 8px">Stok</span><span style="padding: 0 8px; text-align: right">Aksi</span></div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<div style="display: grid; grid-template-columns: 170px minmax(220px, 1fr) 130px 180px 100px; align-items: center; min-height: 52px; padding: 0 12px; border-bottom: 1px solid var(--border); font-size: 14px">
+<span class="mono" style="padding: 0 8px; font-size: 13px; color: var(--muted)">{{r.bc}}</span>
+<span style="padding: 0 8px; font-weight: 600">{{r.nm}}</span>
+<span class="mono" style="padding: 0 8px; text-align: right">{{r.harga}}</span>
+<span style="padding: 0 8px; display: flex; align-items: center; gap: 10px"><span class="mono" style="min-width: 36px; font-weight: 700">{{r.st}}</span>
+<sc-if value="{{r.habis}}" hint-placeholder-val="{{false}}"><span style="height: 22px; display: inline-flex; align-items: center; padding: 0 9px; border-radius: 999px; background: var(--dsoft); color: var(--dsoftfg); font-size: 12px; font-weight: 700">Habis</span></sc-if>
+<sc-if value="{{r.tipis}}" hint-placeholder-val="{{false}}"><span style="height: 22px; display: inline-flex; align-items: center; padding: 0 9px; border-radius: 999px; background: var(--wsoft); color: var(--wsoftfg); font-size: 12px; font-weight: 700">Menipis</span></sc-if>
+</span>
+<span style="padding: 0 4px; display: flex; justify-content: flex-end; gap: 2px">
+<a href="BarangForm.dc.html" aria-label="Edit barang" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--muted)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></a>
+<button aria-label="Hapus barang" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 8px; background: transparent; color: var(--danger); cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg></button>
+</span>
+</div>
+</sc-for>
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+<div style="padding: 56px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center"><span style="width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--mutedbg); color: var(--muted)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><strong style="font-size: 15px">Barang tidak ditemukan</strong><span style="font-size: 14px; color: var(--muted)">Coba kata kunci lain atau tambahkan barang baru.</span></div>
+</sc-if>
+</div></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px; font-size: 13px; color: var(--muted)">
+<span>Menampilkan {{shown}} dari 10 barang</span>
+<span style="display: flex; gap: 6px"><button disabled style="height: 36px; padding: 0 12px; border: 1px solid var(--input); border-radius: 8px; background: var(--card); color: var(--muted); font-family: inherit; font-size: 13px; opacity: .6">Sebelumnya</button><button style="height: 36px; padding: 0 12px; border: 1px solid var(--input); border-radius: 8px; background: var(--card); color: var(--fg); font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Berikutnya</button></span>
+</div>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    const st = Object.assign({ q: '', f: 'semua' }, this.state || {});
+    const rp = (n) => 'Rp ' + Number(n).toLocaleString('id-ID');
+    const all = [
+      ['8996001600146', 'Indomie Goreng 85 g', 3500, 240],
+      ['8996001600269', 'Indomie Soto Mie 75 g', 3300, 96],
+      ['8996001600399', 'Indomie Ayam Bawang 69 g', 3300, 3],
+      ['8886008101053', 'Aqua Air Mineral 600 ml', 4000, 180],
+      ['8992761111014', 'Teh Botol Sosro 450 ml', 5500, 64],
+      ['8992753102308', 'Minyak Goreng Bimoli 2 L', 38500, 18],
+      ['8993093665011', 'Gula Pasir Gulaku 1 kg', 17500, 42],
+      ['8991002101104', 'Kopi Kapal Api Special 165 g', 14000, 35],
+      ['8999999195649', 'Sabun Lifebuoy Merah 110 g', 4500, 0],
+      ['8998009010231', 'Susu Ultra Coklat 250 ml', 6500, 5]
+    ].map((d) => ({ bc: d[0], nm: d[1], harga: rp(d[2]), st: d[3], habis: d[3] === 0, tipis: d[3] > 0 && d[3] <= 5 }));
+    const ql = st.q.trim().toLowerCase();
+    const rows = all.filter((r) => (st.f === 'semua' || (st.f === 'tipis' && r.tipis) || (st.f === 'habis' && r.habis)) && (!ql || r.nm.toLowerCase().indexOf(ql) >= 0 || r.bc.indexOf(ql) >= 0));
+    const mk = (k, label, n) => ({
+      label: label, n: n, pick: () => this.setState({ f: k }),
+      style: 'height:34px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border:0;border-radius:8px;font-family:inherit;font-size:13px;cursor:pointer;color:var(--fg);' + (st.f === k ? 'background:var(--card);font-weight:700;box-shadow:0 1px 2px rgba(0,0,0,.12);' : 'background:transparent;font-weight:500;')
+    });
+    return {
+      dark: dark, tc: dark ? 'dark' : '', q: st.q,
+      onQ: (e) => this.setState({ q: e.target.value }),
+      tabs: [mk('semua', 'Semua', all.length), mk('tipis', 'Menipis', all.filter((r) => r.tipis).length), mk('habis', 'Habis', all.filter((r) => r.habis).length)],
+      rows: rows, empty: rows.length === 0, shown: rows.length
+    };
+  }
+}
+</script>
+</body>
+</html>

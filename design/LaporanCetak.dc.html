@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Laporan penjualan cetak</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+a{color:#15803d}a:hover{color:#14532d}
+</style>
+</helmet>
+<div style="width: 794px; height: 1123px; box-sizing: border-box; padding: 56px 60px; background: #ffffff; color: #111113; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 16px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 16px; border-bottom: 2px solid #111113">
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="width: 48px; height: 48px; border-radius: 10px; background: #15803d; color: #ffffff; display: inline-flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9"/><path d="M10 21v-5h4v5"/></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 22px; font-weight: 800">mutherhelp</strong><span style="font-size: 16px; color: #4a4a52">[ALAMAT TOKO], Subang</span></div>
+</div>
+<div style="text-align: right; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 18px; letter-spacing: 0.04em">LAPORAN PENJUALAN</strong><span style="font-size: 16px; color: #4a4a52">Periode 01 – 24 Oktober 2026</span></div>
+</div>
+<div style="border: 1px solid #c9c9d0">
+<div style="display: grid; grid-template-columns: 44px 170px 130px minmax(0, 1fr) 130px; background: #f0f0f2; font-size: 15px; font-weight: 700; border-bottom: 1px solid #c9c9d0"><span style="padding: 10px 8px">No</span><span style="padding: 10px 8px">Kode</span><span style="padding: 10px 8px">Tanggal</span><span style="padding: 10px 8px">Kasir</span><span style="padding: 10px 8px; text-align: right">Total (Rp)</span></div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+<div style="display: grid; grid-template-columns: 44px 170px 130px minmax(0, 1fr) 130px; font-size: 15px; border-bottom: 1px solid #e2e2e7"><span class="mono" style="padding: 9px 8px; color: #4a4a52">{{r.no}}</span><span class="mono" style="padding: 9px 8px; font-size: 14px">{{r.kode}}</span><span class="mono" style="padding: 9px 8px; font-size: 14px">{{r.tgl}}</span><span style="padding: 9px 8px">{{r.who}}</span><span class="mono" style="padding: 9px 8px; text-align: right">{{r.total}}</span></div>
+</sc-for>
+<div style="display: grid; grid-template-columns: 44px 170px 130px minmax(0, 1fr) 130px; font-size: 15px; font-weight: 800; background: #f0f0f2"><span style="padding: 10px 8px; grid-column: span 4">TOTAL ({{n}} transaksi)</span><span class="mono" style="padding: 10px 8px; text-align: right">{{total}}</span></div>
+</div>
+<div style="flex: 1 1 auto"></div>
+<div style="display: flex; justify-content: flex-end">
+<div style="width: 260px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; font-size: 16px">
+<span>Subang, 24 Oktober 2026</span>
+<span>Pemilik</span>
+<span style="height: 80px"></span>
+<strong style="width: 100%; padding-bottom: 4px; border-bottom: 1px solid #111113">Joko Yulianto</strong>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #6b6b74; padding-top: 12px; border-top: 1px solid #e2e2e7"><span>Dicetak dari mutherhelp · 24/10/2026 14:40</span><span>Halaman 1 dari 1</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const f = (n) => Number(n).toLocaleString('id-ID');
+    const d = [
+      ['PJ-261020-0004', '20/10/2026', 'Dewi Lestari', 16000],
+      ['PJ-261021-0009', '21/10/2026', 'Asep Saepudin', 41000],
+      ['PJ-261022-0018', '22/10/2026', 'Asep Saepudin', 214500],
+      ['PJ-261023-0020', '23/10/2026', 'Dewi Lestari', 145500],
+      ['PJ-261023-0021', '23/10/2026', 'Dewi Lestari', 76000],
+      ['PJ-261024-0010', '24/10/2026', 'Dewi Lestari', 23500],
+      ['PJ-261024-0011', '24/10/2026', 'Asep Saepudin', 118000],
+      ['PJ-261024-0012', '24/10/2026', 'Asep Saepudin', 52500]
+    ];
+    let t = 0;
+    const rows = d.map((x, i) => { t += x[3]; return { no: i + 1, kode: x[0], tgl: x[1], who: x[2], total: f(x[3]) }; });
+    return { rows: rows, n: rows.length, total: f(t) };
+  }
+}
+</script>
+</body>
+</html>
